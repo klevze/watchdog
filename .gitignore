@@ -1,0 +1,43 @@
+# Watchdog
+config/*
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Build/output
+/dist/
+/build/
+
+# Test coverage
+coverage/
+
+# SSH keys (never commit private keys)
+*.pem
+*.key
+*.pub
+id_rsa
+id_rsa.pub
+
+# Misc
+*.log
+*.tmp
+
+config/*
+.vscode/*
+test/*

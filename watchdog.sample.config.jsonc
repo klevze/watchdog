@@ -1,0 +1,66 @@
+// Watchdog sample configuration (JSON with comments). Rename to watchdog.config.json to use.
+// Lines starting with // are comments and will NOT be valid if you save as plain .json without removing them.
+{
+  // Absolute or relative path to the folder you want to watch
+  "sourceDir": "D:/Sites/MyProject",
+
+  "server": {
+    // SFTP / SSH host name or IP
+    "host": "example.com",
+    // Optional port (default 22 if omitted)
+    "port": 22,
+    // SSH username
+    "username": "deploy",
+    // Either provide a privateKey path OR a password (avoid committing passwords!)
+    // "password": "your_password_here",
+    "privateKey": "c:/users/you/.ssh/id_rsa",
+    // Remote base directory where files will be synchronized (must be writable)
+    "remoteBaseDir": "/var/www/myproject"
+  },
+
+  // Glob patterns to ignore (minimatch syntax). Dot files included by default with dot: true.
+  "ignore": [
+    ".git",
+    "node_modules",
+    ".DS_Store",
+    "**/*.log",
+    "**/*.tmp",
+    ".phpintel/",
+    "vendor/",
+    "old/",
+    "storage/",
+    "bootstrap/cache",
+    "public/files/",
+    "resources/lang",
+    ".env",
+    "public/hot"
+  ],
+
+  // When true, deleting a local file/dir will attempt to delete it remotely
+  "deleteOnRemote": false,
+
+  // Perform a one-time initial sync of all existing files when starting
+  "initialSync": true,
+
+  // Debounce interval (ms) to batch rapid successive filesystem events
+  "debounceMs": 300,
+
+  // Parallel uploads (tune for bandwidth / server limits)
+  "concurrency": 4,
+
+  // Skip uploading files larger than this many bytes (0 = no limit)
+  "maxFileSizeBytes": 0,
+
+  // Log level: "error" | "warn" | "info" | "debug"
+  "logLevel": "info",
+
+  // Optional watcher fine‑tuning; values shown are defaults used if omitted
+  "watcherOptions": {
+    "awaitWriteFinish": {
+      // Time (ms) of stability before considering a file event complete
+      "stabilityThreshold": 250,
+      // Interval (ms) for polling file size changes
+      "pollInterval": 50
+    }
+  }
+}
