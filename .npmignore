@@ -1,0 +1,8 @@
+test/
+.github/
+node_modules/
+.vscode/
+*.log
+**/*.tmp
+
+# keep sample config in repo but not published artifacts if files omitted

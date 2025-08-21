@@ -5,18 +5,47 @@
   "sourceDir": "D:/Sites/MyProject",
 
   "server": {
-    // SFTP / SSH host name or IP
-    "host": "example.com",
+  // Transport server configuration.
+  // By default the project uses SFTP. To use other backends set "type": "s3" | "ftps" | "webdav" | "tus"
+  // Example SFTP (default):
+  "host": "example.com",
     // Optional port (default 22 if omitted)
     "port": 22,
     // SSH username
     "username": "deploy",
-    // Either provide a privateKey path OR a password (avoid committing passwords!)
-    // "password": "your_password_here",
-    "privateKey": "c:/users/you/.ssh/id_rsa",
+    // Either provide a privateKey path OR a password (avoid committing passwords!).
+    // Private key example:
+    // "privateKey": "c:/users/you/.ssh/id_rsa",
+    // Password example:
+    // "password": "s3cureP@ssw0rd",
     // Remote base directory where files will be synchronized (must be writable)
     "remoteBaseDir": "/var/www/myproject"
   },
+
+  // Example S3 configuration (use instead of above server block):
+  // "server": {
+  //   "type": "s3",
+  //   "bucket": "my-bucket",
+  //   "region": "us-east-1",
+  //   // Credentials are read from standard AWS env vars if omitted
+  // }
+
+  // Example FTPS configuration:
+  // "server": {
+  //   "type": "ftps",
+  //   "host": "ftp.example.com",
+  //   "port": 21,
+  //   "username": "deploy",
+  //   "password": "...",
+  //   "remoteBaseDir": "/path/on/ftp"
+  // }
+
+  // Example tus (resumable) configuration:
+  // "server": {
+  //   "type": "tus",
+  //   "endpoint": "https://uploads.example.com/files/",
+  //   "remoteBaseDir": "/uploads"
+  // }
 
   // Glob patterns to ignore (minimatch syntax). Dot files included by default with dot: true.
   "ignore": [
